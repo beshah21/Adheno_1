@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     return (
         <div style={pageStyle}>
-            <div className="about-container" style={containerStyle}><br></br><br></br><br></br>
+            <div className="about-container" style={containerStyle}>
                 <h2 style={headerStyle}>About ADHENO</h2>
                 <table className="about-table" style={tableStyle}>
                     <tbody>
@@ -52,26 +52,27 @@ const About = () => {
 
                 <h3 style={teamHeaderStyle}>ADHENO Team</h3>
                 <ul style={teamListStyle}>
-                    <li>Yonathan Fikre - Executive Director</li>
-                    <li>Selomie Hailu - Administration & Finance Head</li>
-                    <li>Rebecca Getiye - Finance Officer</li>
-                    <li>Isayas Fikre - Project Coordinator</li>
-                    <li>Sefinew Demlie - Program Officer</li>
-                    <li>Ayele Beyene - Field Officer</li>
-                    <li>Eden Hailemichael - Project Cashier</li>
+                    <li style={listItemStyle}>Yonathan Fikre - Executive Director</li>
+                    <li style={listItemStyle}>Selomie Hailu - Administration & Finance Head</li>
+                    <li style={listItemStyle}>Rebecca Getiye - Finance Officer</li>
+                    <li style={listItemStyle}>Isayas Fikre - Project Coordinator</li>
+                    <li style={listItemStyle}>Sefinew Demlie - Program Officer</li>
+                    <li style={listItemStyle}>Ayele Beyene - Field Officer</li>
+                    <li style={listItemStyle}>Eden Hailemichael - Project Cashier</li>
                 </ul>
                 <p>
                     <a href="/team-profile" style={linkStyle}>Click here to view the ADHENO Team Profile</a>.
                 </p>
+                
                 <h3 style={teamHeaderStyle}>ADHENO Executive Board Members</h3>
                 <ul style={teamListStyle}>
-                    <li>Dr. Yamerot Kinfu - Board Chairperson</li>
-                    <li>Dr. Yared Amare - Vice Chairperson</li>
-                    <li>Dr. Yayehyirad Kitaw - Member</li>
-                    <li>Eng. Tewoderos W/Amelak - Member</li>
-                    <li>Sosena Demissie - Member</li>
-                    <li>Elezabeth Mulugeta - Member</li>
-                    <li>Ato Asenak Atakure - Member</li>
+                    <li style={listItemStyle}>Dr. Yamerot Kinfu - Board Chairperson</li>
+                    <li style={listItemStyle}>Dr. Yared Amare - Vice Chairperson</li>
+                    <li style={listItemStyle}>Dr. Yayehyirad Kitaw - Member</li>
+                    <li style={listItemStyle}>Eng. Tewoderos W/Amelak - Member</li>
+                    <li style={listItemStyle}>Sosena Demissie - Member</li>
+                    <li style={listItemStyle}>Elezabeth Mulugeta - Member</li>
+                    <li style={listItemStyle}>Ato Asenak Atakure - Member</li>
                 </ul>
                 <p>
                     <a href="/board-profile" style={linkStyle}>Click here to view the ADHENO Board Profile</a>.
@@ -80,7 +81,6 @@ const About = () => {
         </div>
     );
 };
-
 
 // Internal styles
 const pageStyle = {
@@ -137,6 +137,11 @@ const teamListStyle = {
 const linkStyle = {
     color: '#007BFF',
     textDecoration: 'none',
+};
+
+const listItemStyle = {
+    marginBottom: '1em', // Responsive margin
+    transition: 'background-color 0.3s ease',
 };
 
 export default About;

@@ -11,15 +11,15 @@ import News from './pages/News';
 import Projects from './pages/Projects';
 import Resources from './pages/Resources';
 import Stories from './pages/Stories';
-import BoardProfile from './pages/boardProfile'; // Import the BoardProfile component
-import TeamProfile from './pages/teamProfile'; // Import the TeamProfile component
+import BoardProfile from './pages/boardProfile';
+import TeamProfile from './pages/teamProfile';
 
 const App = () => {
     return (
         <Router>
             <Header />
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/stories" element={<Stories />} />
                 <Route path="/projects" element={<Projects />} />
@@ -29,8 +29,8 @@ const App = () => {
                 <Route path="/get-involved" element={<GetInvolved />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/faqs" element={<FAQs />} />
-                <Route path="/team-profile" element={<TeamProfile />} />  {/* Add TeamProfile route */}
-                <Route path="/board-profile" element={<BoardProfile />} /> {/* Add BoardProfile route */}
+                <Route path="/team-profile" element={<TeamProfile />} />
+                <Route path="/board-profile" element={<BoardProfile />} />
             </Routes>
             <Footer />
         </Router>
