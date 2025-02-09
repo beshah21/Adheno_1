@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => {
     return (
-        <div className="home-container" style={containerStyle}><br></br><br></br><br></br>
+        <div className="home-container" style={containerStyle}>
             <h1 style={headerStyle}>Welcome to ADHENO Integrated Rural Development Association</h1>
             <p style={paragraphStyle}>
                 ADHENO Integrated Rural Development Association is an Ethiopian non-profit, non-governmental organization based in Addis Ababa, Ethiopia. It was established in 2003 by concerned citizens and registered with the Ethiopian Ministry of Justice for the purpose of contributing toward the alleviation of extreme poverty in North Shoa, one of the poorest regions of the country. Its specific objectives include:

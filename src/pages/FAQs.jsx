@@ -2,7 +2,7 @@ import React from 'react';
 
 const FAQs = () => {
     return (
-        <div style={containerStyle}><br></br><br></br><br></br><br></br>
+        <div style={containerStyle}>
             <h1 style={headerStyle}>Frequently Asked Questions (FAQs)</h1>
 
             <section style={sectionStyle}>

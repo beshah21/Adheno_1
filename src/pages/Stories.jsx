@@ -20,75 +20,79 @@ const Stories = () => {
         }
     ];
 
+    const styles = {
+        container: {
+            padding: '30px',
+            maxWidth: '900px',
+            margin: '0 auto',
+            backgroundColor: '#ffffff',
+            borderRadius: '10px',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+            fontFamily: 'Arial, sans-serif',
+        },
+        header: {
+            textAlign: 'center',
+            color: '#2c3e50',
+            marginBottom: '15px',
+            fontSize: '2.5rem',
+        },
+        paragraph: {
+            lineHeight: '1.8',
+            color: '#2c3e50',
+            textAlign: 'center',
+            marginBottom: '30px',
+            fontSize: '1.3rem',
+            fontWeight: '600',
+            letterSpacing: '0.5px',
+        },
+        list: {
+            listStyleType: 'none',
+            padding: 0,
+        },
+        listItem: {
+            marginBottom: '25px',
+            padding: '20px',
+            border: '1px solid #ecf0f1',
+            borderRadius: '8px',
+            backgroundColor: '#f8f9fa',
+            transition: 'transform 0.3s, box-shadow 0.3s',
+            cursor: 'pointer',
+        },
+        listItemHover: {
+            transform: 'translateY(-5px)',
+            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+        },
+        storyTitle: {
+            fontSize: '1.6rem',
+            color: '#e74c3c',
+        },
+        storyParagraph: {
+            lineHeight: '1.8',
+            color: '#555',
+            fontSize: '1.1rem',
+            fontWeight: '400',
+        },
+    };
+
     return (
-        <div style={containerStyle}><br></br><br></br><br></br><br></br>
-            <h1 style={headerStyle}>Inspiring Stories</h1>
-            <p style={paragraphStyle}>Discover the journeys of the individuals we've empowered:</p>
-            <ul style={listStyle}>
+        <div style={styles.container}>
+            <h1 style={styles.header}>Inspiring Stories</h1>
+            <p style={styles.paragraph}>Discover the journeys of the individuals we've empowered:</p>
+            <ul style={styles.list}>
                 {sampleStories.map((story, index) => (
-                    <li key={index} style={listItemStyle}>
-                        <strong style={storyTitleStyle}>{story.name}</strong>
-                        <p style={storyParagraphStyle}>{story.story}</p>
+                    <li 
+                        key={index} 
+                        style={styles.listItem} 
+                        onMouseEnter={(e) => Object.assign(e.currentTarget.style, styles.listItemHover)}
+                        onMouseLeave={(e) => Object.assign(e.currentTarget.style, styles.listItem)}
+                    >
+                        <strong style={styles.storyTitle}>{story.name}</strong>
+                        <p style={styles.storyParagraph}>{story.story}</p>
                     </li>
                 ))}
             </ul>
         </div>
     );
-};
-
-// Internal styles
-const containerStyle = {
-    padding: '30px',
-    maxWidth: '900px',
-    margin: '0 auto',
-    backgroundColor: '#ffffff',
-    borderRadius: '10px',
-    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-    fontFamily: '"Arial", sans-serif',
-};
-
-const headerStyle = {
-    textAlign: 'center',
-    color: '#2c3e50', // A dark navy color for a modern look
-    marginBottom: '15px',
-    fontSize: '2.5rem',
-};
-
-const paragraphStyle = {
-    lineHeight: '1.7',
-    color: '#34495e', // A softer dark color
-    textAlign: 'center',
-    marginBottom: '30px',
-    fontSize: '1.1rem',
-};
-
-const listStyle = {
-    listStyleType: 'none',
-    padding: 0,
-};
-
-const listItemStyle = {
-    marginBottom: '25px',
-    padding: '20px',
-    border: '1px solid #ecf0f1',
-    borderRadius: '8px',
-    backgroundColor: '#f8f9fa',
-    transition: 'transform 0.3s, box-shadow 0.3s',
-    cursor: 'pointer',
-    '&:hover': {
-        transform: 'translateY(-5px)',
-        boxShadow: '0 6px 15px rgba(0, 0, 0, 0.2)',
-    },
-};
-
-const storyTitleStyle = {
-    fontSize: '1.6rem',
-    color: '#e74c3c', // A vibrant red for emphasis
-};
-
-const storyParagraphStyle = {
-    lineHeight: '1.6',
-    color: '#7f8c8d', // A muted gray for the paragraph text
 };
 
 export default Stories;

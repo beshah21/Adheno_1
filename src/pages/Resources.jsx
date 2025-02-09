@@ -2,7 +2,7 @@ import React from 'react';
 
 const Resources = () => {
     return (
-        <div style={outerContainerStyle}><br></br><br></br><br></br><br></br>
+        <div style={outerContainerStyle}>
             <h1 style={headerStyle}>Resources</h1>
             
             <section style={sectionStyle}>

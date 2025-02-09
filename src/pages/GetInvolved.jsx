@@ -2,7 +2,7 @@ import React from 'react';
 
 const GetInvolved = () => {
     return (
-        <div style={containerStyle}><br></br><br></br><br></br><br></br>
+        <div style={containerStyle}>
             <h1 style={headerStyle}>Get Involved</h1>
             
             <section style={sectionStyle}>

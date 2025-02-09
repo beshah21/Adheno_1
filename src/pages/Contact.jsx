@@ -23,7 +23,7 @@ const Contact = () => {
     };
 
     return (
-        <div style={containerStyle}><br></br><br></br><br></br><br></br>
+        <div style={containerStyle}>
             <h1 style={headerStyle}>Contact Us</h1>
             <form onSubmit={handleSubmit} style={formStyle}>
                 <div style={formGroupStyle}>
@@ -90,17 +90,18 @@ const containerStyle = {
     padding: '40px',
     maxWidth: '600px',
     margin: '0 auto',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#f0f4f8', // Light background color for the container
     borderRadius: '12px',
-    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 8px 30px rgba(0, 0, 0, 0.1)',
     fontFamily: "'Arial', sans-serif",
 };
 
 const headerStyle = {
     textAlign: 'center',
-    color: '#333',
+    color: '#2c3e50',
     marginBottom: '30px',
     fontSize: '2.5rem',
+    fontWeight: '600',
 };
 
 const formStyle = {
@@ -125,10 +126,8 @@ const inputStyle = {
     fontSize: '1rem',
     outline: 'none',
     transition: 'border-color 0.3s, box-shadow 0.3s',
-    '&:hover': {
-        borderColor: '#007bff',
-        boxShadow: '0 0 5px rgba(0, 123, 255, 0.5)',
-    },
+    width: '100%', // Full width for input fields
+    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.05)',
 };
 
 const buttonStyle = {
@@ -140,10 +139,8 @@ const buttonStyle = {
     fontSize: '1rem',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease, transform 0.2s',
-    '&:hover': {
-        backgroundColor: '#0056b3',
-        transform: 'scale(1.05)',
-    },
+    width: '100%', // Full width for the button
+    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
 };
 
 const confirmationMessageStyle = {
@@ -156,14 +153,15 @@ const confirmationMessageStyle = {
 const contactInfoStyle = {
     marginTop: '30px',
     padding: '20px',
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff', // White background for contrast
     borderRadius: '8px',
     boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
 };
 
 const infoHeaderStyle = {
     marginTop: '20px',
-    color: '#333',
+    color: '#2c3e50',
+    fontWeight: '600',
 };
 
 const mapContainerStyle = {

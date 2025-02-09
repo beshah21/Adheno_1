@@ -30,22 +30,17 @@ const News = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle newsletter signup logic here
         setConfirmationMessage(`Thank you for signing up with email: ${email}`);
         setEmail('');
     };
 
     return (
-        <div style={containerStyle}><br></br><br></br><br></br><br></br>
+        <div style={containerStyle}>
             <h1 style={headerStyle}>Latest News</h1>
             <p style={paragraphStyle}>Stay updated with the latest news from ADHENO:</p>
             <ul style={listStyle}>
                 {sampleNews.map((newsItem, index) => (
-                    <li key={index} style={listItemStyle}>
-                        <strong style={newsTitleStyle}>{newsItem.title}</strong>
-                        <p style={newsDateStyle}>{newsItem.date}</p>
-                        <p style={newsDescriptionStyle}>{newsItem.description}</p>
-                    </li>
+                    <ListItem key={index} title={newsItem.title} date={newsItem.date} description={newsItem.description} />
                 ))}
             </ul>
             <h2 style={signupHeaderStyle}>Subscribe to Our Newsletter</h2>
@@ -70,7 +65,7 @@ const News = () => {
 // Internal styles
 const containerStyle = {
     padding: '30px',
-    maxWidth: '800px',
+    maxWidth: '900px',
     margin: '0 auto',
     backgroundColor: '#ffffff',
     borderRadius: '10px',
@@ -108,8 +103,14 @@ const listItemStyle = {
     cursor: 'pointer',
 };
 
+// Hover style
+const hoverStyle = {
+    transform: 'translateY(-5px)',
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+};
+
 const newsTitleStyle = {
-    fontSize: '1.4rem',
+    fontSize: '1.6rem',
     color: '#e74c3c',
 };
 
@@ -119,8 +120,28 @@ const newsDateStyle = {
 };
 
 const newsDescriptionStyle = {
-    lineHeight: '1.5',
-    color: '#555',
+    lineHeight: '1.6',
+    color: '#7f8c8d',
+};
+
+// Wrapper component to handle hover state
+const ListItem = ({ title, date, description }) => {
+    const [isHovered, setIsHovered] = React.useState(false);
+
+    return (
+        <li
+            style={{
+                ...listItemStyle,
+                ...(isHovered ? hoverStyle : {}),
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <strong style={newsTitleStyle}>{title}</strong>
+            <p style={newsDateStyle}>{date}</p>
+            <p style={newsDescriptionStyle}>{description}</p>
+        </li>
+    );
 };
 
 const signupHeaderStyle = {

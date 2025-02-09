@@ -20,12 +20,11 @@ const Donate = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         alert(`Thank you for your ${donationType} donation of $${donationAmount}!`);
-        // Here you would typically handle donation submission, e.g., send data to a payment processor
     };
 
     return (
         <div style={outerContainerStyle}>
-            <div style={containerStyle}><br></br><br></br><br></br><br></br>
+            <div style={containerStyle}>
                 <h1 style={headerStyle}>Make a Donation</h1>
                 <form onSubmit={handleSubmit} style={formStyle}>
                     <div style={formGroupStyle}>
@@ -67,7 +66,6 @@ const Donate = () => {
                        or supporting crucial initiatives, every dollar makes a difference!</p>
                 </div>
 
-                {/* Donation Methods Section */}
                 <div style={donationMethodsStyle}>
                     <h2 style={infoHeaderStyle}>Other Ways to Donate</h2>
                     <p>If you prefer to donate through other means, you can use the following options:</p>
@@ -97,7 +95,7 @@ const Donate = () => {
 
 // Internal styles
 const outerContainerStyle = {
-    backgroundColor: '#f7fafc',
+    backgroundColor: '#e9eff1', // Softer background
     minHeight: '100vh',
     display: 'flex',
     justifyContent: 'center',
@@ -150,9 +148,6 @@ const inputStyle = {
     transition: 'border-color 0.3s ease',
     outline: 'none',
     color: '#34495e',
-    '&:focus': {
-        borderColor: '#3498db',
-    },
 };
 
 const buttonStyle = {
@@ -165,13 +160,7 @@ const buttonStyle = {
     borderRadius: '8px',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease, transform 0.3s',
-    '&:hover': {
-        backgroundColor: '#2980b9',
-        transform: 'scale(1.05)',
-    },
-    '&:active': {
-        transform: 'scale(0.98)',
-    },
+    width: '100%', // Full width for the button
 };
 
 const impactStatementStyle = {

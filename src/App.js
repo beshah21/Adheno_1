@@ -1,4 +1,5 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, HashRouter as Router, Routes, useNavigate } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import About from './pages/About';
@@ -14,11 +15,25 @@ import Stories from './pages/Stories';
 import BoardProfile from './pages/boardProfile';
 import TeamProfile from './pages/teamProfile';
 
+// Component to handle redirection
+const RedirectToHome = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Redirect to "/home" when this component mounts
+        navigate('/home');
+    }, [navigate]);
+
+    return null; // This component doesn't need to render anything
+};
+
 const App = () => {
     return (
         <Router>
             <Header />
             <Routes>
+                {/* Redirect from root path to /home */}
+                <Route path="/" element={<RedirectToHome />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/stories" element={<Stories />} />

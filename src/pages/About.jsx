@@ -17,6 +17,7 @@ const About = () => {
                                 </p>
                             </td>
                             <td style={imageCellStyle} align="center">
+                                <img src="/assets/img/st.%20Gabriel%20Church%20Workegur.jpg" alt="St. Gabriel Church Workegur" style={imageStyle} />
                                 <br />St. Gabriel Church Workegur
                             </td>
                         </tr>
@@ -27,6 +28,7 @@ const About = () => {
                                 </p>
                             </td>
                             <td style={imageCellStyle} align="center">
+                                <img src="/assets/img/Local%20youth,%20women%20and%20farmers%20receive%20Project%20Training.jpg" alt="Local youth, women, and farmers receive project training" style={imageStyle} />
                                 <br />Local youth, women, and farmers receive project training
                             </td>
                         </tr>
@@ -37,6 +39,7 @@ const About = () => {
                                 </p>
                             </td>
                             <td style={imageCellStyle} align="center">
+                                <img src="../../public/img/Local-women-at-ADHENO-office-in-Workegur.jpeg" alt="Local women at ADHENO office in Workegur" style={imageStyle} />
                                 <br />Local women at ADHENO office in Workegur
                             </td>
                         </tr>
@@ -63,7 +66,7 @@ const About = () => {
                 <p>
                     <a href="/team-profile" style={linkStyle}>Click here to view the ADHENO Team Profile</a>.
                 </p>
-                
+
                 <h3 style={teamHeaderStyle}>ADHENO Executive Board Members</h3>
                 <ul style={teamListStyle}>
                     <li style={listItemStyle}>Dr. Yamerot Kinfu - Board Chairperson</li>
@@ -84,9 +87,9 @@ const About = () => {
 
 // Internal styles
 const pageStyle = {
-    backgroundColor: '#e6f7ff', // Light blue background color
+    backgroundColor: '#e6f7ff',
     padding: '20px',
-    minHeight: '100vh', // Full height of the viewport
+    minHeight: '100vh',
 };
 
 const containerStyle = {
@@ -100,7 +103,7 @@ const containerStyle = {
 
 const headerStyle = {
     textAlign: 'center',
-    color: '#00796b', // Darker blue for contrast
+    color: '#00796b',
 };
 
 const tableStyle = {
@@ -110,7 +113,7 @@ const tableStyle = {
 };
 
 const textCellStyle = {
-    padding: '1em', // Responsive padding
+    padding: '1em',
     verticalAlign: 'top',
 };
 
@@ -126,7 +129,7 @@ const paragraphStyle = {
 
 const teamHeaderStyle = {
     marginTop: '30px',
-    color: '#00796b', // Darker blue for contrast
+    color: '#00796b',
 };
 
 const teamListStyle = {
@@ -140,8 +143,15 @@ const linkStyle = {
 };
 
 const listItemStyle = {
-    marginBottom: '1em', // Responsive margin
+    marginBottom: '1em',
     transition: 'background-color 0.3s ease',
+};
+
+// Image styles for consistency
+const imageStyle = {
+    maxWidth: '100%', // Responsive image
+    height: 'auto',
+    borderRadius: '8px',
 };
 
 export default About;

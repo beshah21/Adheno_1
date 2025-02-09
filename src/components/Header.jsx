@@ -21,7 +21,7 @@ const Header = () => {
 
     const mobileHeaderStyle = {
         backgroundColor: '#1E1E2F',
-        position: 'fixed',
+        position: 'sticky',
         top: 0,
         left: 0,
         width: '100%',
@@ -42,12 +42,9 @@ const Header = () => {
         listStyleType: 'none',
         margin: 0,
         padding: '10px 0',
-        backgroundColor: isMenuOpen ? 'rgba(31, 30, 30, 0.9)' : 'transparent',
-        position: 'absolute',
-        top: '60px',
-        left: 0,
-        width: '100%',
-        display: isMenuOpen ? 'block' : 'none',
+        backgroundColor: 'rgba(31, 30, 30, 0.9)',
+        display: isMenuOpen ? 'flex' : 'none',
+        flexWrap: 'wrap', // Allow items to wrap
         transition: 'all 0.3s ease',
     };
 
@@ -58,10 +55,12 @@ const Header = () => {
         textDecoration: 'none',
         fontWeight: 'bold',
         transition: 'color 0.3s ease',
+        flex: '1 0 30%', // Allow three items per row
+        textAlign: 'center', // Center align text
     };
 
     const desktopHeaderStyle = {
-        position: 'fixed',
+        position: 'sticky',
         zIndex: 1000,
         left: 0,
         top: 0,
@@ -97,21 +96,30 @@ const Header = () => {
     return (
         <header style={isMobile ? mobileHeaderStyle : desktopHeaderStyle}>
             <div style={isMobile ? mobileNavBarStyle : desktopNavBarStyle}>
-                <h1 style={{ color: isMobile ? '#FFD700' : '#fff', fontSize: '24px', margin: 0, fontWeight: 'bold' }}>
-                    ADHENO
-                </h1>
+                <img 
+                    src="./img/logo.png"
+                    alt="ADHENO Logo"
+                    style={{
+                        width: '50px',
+                        height: '50px',
+                        borderRadius: '50%',
+                        objectFit: 'cover', 
+                    }} 
+                />
 
-                <button onClick={toggleMenu} style={{ 
-                    background: 'none', 
-                    border: 'none', 
-                    color: isMobile ? '#FFD700' : '#fff', 
-                    fontSize: isMobile ? '30px' : '24px', 
-                    cursor: 'pointer' 
-                }}>
-                    {isMenuOpen ? '✖' : '☰'}
-                </button>
+                {isMobile && (
+                    <button onClick={toggleMenu} style={{ 
+                        background: 'none', 
+                        border: 'none', 
+                        color: '#FFD700', 
+                        fontSize: '30px', 
+                        cursor: 'pointer' 
+                    }}>
+                        {isMenuOpen ? '✖' : '☰'}
+                    </button>
+                )}
 
-                <nav style={isMobile ? mobileNavListStyle : { display: 'flex' }}>
+                <nav style={isMobile ? { display: 'block' } : { display: 'flex' }}>
                     <ul style={isMobile ? mobileNavListStyle : desktopNavListStyle}>
                         {['Home', 'About', 'Stories', 'Projects', 'News', 'Contact', 'Donate', 'Get Involved', 'Resources', 'FAQs'].map((item, index) => (
                             <li key={index}>

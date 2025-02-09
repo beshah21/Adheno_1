@@ -4,7 +4,7 @@ import React from 'react';
 const Glossary = () => {
     return (
         <div className="container" style={{ backgroundColor: '#FFFFFF' }}>
-            <div className="content" style={{ backgroundColor: '#FFFFFF', padding: '20px' }}><br></br><br></br><br></br>
+            <div className="content" style={{ backgroundColor: '#FFFFFF', padding: '20px' }}>
                 <h2>Glossary of Terms</h2>
                 <br />
                 <p><strong>Gudifecha:</strong> Adoption of a tree</p>

@@ -8,7 +8,7 @@ function TeamProfile() {
                     <tbody>
                         <tr>
                             <td width="12%" align="center">
-                                {/* <img src="Logo/logo.jpg" alt="Logo ADHENO" width="360" style={{ background: '#C6D580', display: 'block' }} /> */}
+                                {/* <img src="../../public/logo.jpg" alt="Logo ADHENO" width="360" style={{ background: '#C6D580', display: 'block' }} /> */}
                             </td>
                             <td width="81%" align="center" colSpan="7"><br></br><br></br>
                                 <h1 style={{ color: '#486616' }}>ADHENO - Integrated Rural Development Association</h1>

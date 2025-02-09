@@ -4,7 +4,7 @@ import React from 'react';
 const BoardProfile = () => {
     return (
         <div className="container">
-            <main className="content" style={{ position: 'relative', margin: '20px' }}><br></br><br></br><br></br>
+            <main className="content" style={{ position: 'relative', margin: '20px' }}>
                 <h2>Board Profile</h2>
                 <ul>
                     <h3>
