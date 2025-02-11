@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Stories = () => {
+const Stories = ({ isDarkMode }) => {
     const sampleStories = [
         {
             name: "Amina's Journey",
@@ -25,20 +25,20 @@ const Stories = () => {
             padding: '30px',
             maxWidth: '900px',
             margin: '0 auto',
-            backgroundColor: '#ffffff',
+            backgroundColor: isDarkMode ? '#34495e' : '#ffffff', // Dark mode background
             borderRadius: '10px',
             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
             fontFamily: 'Arial, sans-serif',
         },
         header: {
             textAlign: 'center',
-            color: '#2c3e50',
+            color: isDarkMode ? '#ecf0f1' : '#2c3e50', // Header color
             marginBottom: '15px',
             fontSize: '2.5rem',
         },
         paragraph: {
             lineHeight: '1.8',
-            color: '#2c3e50',
+            color: isDarkMode ? '#ecf0f1' : '#2c3e50', // Paragraph color
             textAlign: 'center',
             marginBottom: '30px',
             fontSize: '1.3rem',
@@ -52,9 +52,9 @@ const Stories = () => {
         listItem: {
             marginBottom: '25px',
             padding: '20px',
-            border: '1px solid #ecf0f1',
+            border: `1px solid ${isDarkMode ? '#7f8c8d' : '#ecf0f1'}`, // Border color for dark mode
             borderRadius: '8px',
-            backgroundColor: '#f8f9fa',
+            backgroundColor: isDarkMode ? '#2c3e50' : '#f8f9fa', // Background color for list items
             transition: 'transform 0.3s, box-shadow 0.3s',
             cursor: 'pointer',
         },
@@ -68,7 +68,7 @@ const Stories = () => {
         },
         storyParagraph: {
             lineHeight: '1.8',
-            color: '#555',
+            color: isDarkMode ? '#ecf0f1' : '#555', // Story paragraph color
             fontSize: '1.1rem',
             fontWeight: '400',
         },

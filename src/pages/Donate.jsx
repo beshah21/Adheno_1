@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Donate = () => {
+const Donate = ({ isDarkMode }) => {
     const [donationType, setDonationType] = useState('single');
     const [donationAmount, setDonationAmount] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('creditCard');
@@ -23,51 +23,51 @@ const Donate = () => {
     };
 
     return (
-        <div style={outerContainerStyle}>
-            <div style={containerStyle}>
-                <h1 style={headerStyle}>Make a Donation</h1>
+        <div style={outerContainerStyle(isDarkMode)}>
+            <div style={containerStyle(isDarkMode)}>
+                <h1 style={headerStyle(isDarkMode)}>Make a Donation</h1>
                 <form onSubmit={handleSubmit} style={formStyle}>
                     <div style={formGroupStyle}>
-                        <label style={labelStyle}>Donation Type:</label>
-                        <select value={donationType} onChange={handleTypeChange} style={inputStyle}>
+                        <label style={labelStyle(isDarkMode)}>Donation Type:</label>
+                        <select value={donationType} onChange={handleTypeChange} style={inputStyle(isDarkMode)}>
                             <option value="single">Single Donation</option>
                             <option value="monthly">Monthly Donation</option>
                             <option value="other">Other Options</option>
                         </select>
                     </div>
                     <div style={formGroupStyle}>
-                        <label style={labelStyle}>Donation Amount:</label>
+                        <label style={labelStyle(isDarkMode)}>Donation Amount:</label>
                         <input
                             type="number"
                             value={donationAmount}
                             onChange={handleAmountChange}
-                            style={inputStyle}
+                            style={inputStyle(isDarkMode)}
                             required
                         />
                     </div>
                     <div style={formGroupStyle}>
-                        <label style={labelStyle}>Payment Method:</label>
+                        <label style={labelStyle(isDarkMode)}>Payment Method:</label>
                         <select
                             value={paymentMethod}
                             onChange={handlePaymentMethodChange}
-                            style={inputStyle}
+                            style={inputStyle(isDarkMode)}
                         >
                             <option value="creditCard">Credit Card</option>
                             <option value="paypal">PayPal</option>
                         </select>
                     </div>
-                    <button type="submit" style={buttonStyle}>Donate</button>
+                    <button type="submit" style={buttonStyle(isDarkMode)}>Donate</button>
                 </form>
 
-                <div style={impactStatementStyle}>
-                    <h2 style={infoHeaderStyle}>Impact of Your Donation</h2>
+                <div style={impactStatementStyle(isDarkMode)}>
+                    <h2 style={infoHeaderStyle(isDarkMode)}>Impact of Your Donation</h2>
                     <p>Your generous contributions help us provide essential services to those in need. 
                        Whether it's funding educational programs, providing resources for the community, 
                        or supporting crucial initiatives, every dollar makes a difference!</p>
                 </div>
 
-                <div style={donationMethodsStyle}>
-                    <h2 style={infoHeaderStyle}>Other Ways to Donate</h2>
+                <div style={donationMethodsStyle(isDarkMode)}>
+                    <h2 style={infoHeaderStyle(isDarkMode)}>Other Ways to Donate</h2>
                     <p>If you prefer to donate through other means, you can use the following options:</p>
                     <div style={methodStyle}>
                         <h3 style={methodHeaderStyle}>1) Wire Transfer to ADHENO Bank Account (Ethiopia)</h3>
@@ -94,31 +94,31 @@ const Donate = () => {
 };
 
 // Internal styles
-const outerContainerStyle = {
-    backgroundColor: '#e9eff1', // Softer background
+const outerContainerStyle = (isDarkMode) => ({
+    backgroundColor: isDarkMode ? '#2c3e50' : '#e9eff1', // Softer background
     minHeight: '100vh',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     fontFamily: 'Arial, sans-serif',
-};
+});
 
-const containerStyle = {
+const containerStyle = (isDarkMode) => ({
     padding: '40px',
     width: '100%',
     maxWidth: '600px',
-    backgroundColor: '#ffffff',
+    backgroundColor: isDarkMode ? '#34495e' : '#ffffff',
     borderRadius: '12px',
     boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
-};
+});
 
-const headerStyle = {
+const headerStyle = (isDarkMode) => ({
     fontSize: '2rem',
     fontWeight: '600',
-    color: '#2c3e50',
+    color: isDarkMode ? '#ecf0f1' : '#2c3e50',
     marginBottom: '20px',
-};
+});
 
 const formStyle = {
     display: 'flex',
@@ -132,25 +132,26 @@ const formGroupStyle = {
     alignItems: 'flex-start',
 };
 
-const labelStyle = {
+const labelStyle = (isDarkMode) => ({
     fontSize: '1rem',
     fontWeight: 'bold',
-    color: '#34495e',
+    color: isDarkMode ? '#ecf0f1' : '#34495e',
     marginBottom: '8px',
-};
+});
 
-const inputStyle = {
+const inputStyle = (isDarkMode) => ({
     padding: '12px 15px',
     fontSize: '1rem',
     borderRadius: '8px',
-    border: '1px solid #ddd',
+    border: `1px solid ${isDarkMode ? '#7f8c8d' : '#ddd'}`,
     width: '100%',
     transition: 'border-color 0.3s ease',
     outline: 'none',
-    color: '#34495e',
-};
+    color: isDarkMode ? '#ecf0f1' : '#34495e',
+    backgroundColor: isDarkMode ? '#2c3e50' : '#ffffff',
+});
 
-const buttonStyle = {
+const buttonStyle = (isDarkMode) => ({
     padding: '14px',
     backgroundColor: '#3498db',
     color: '#fff',
@@ -161,30 +162,30 @@ const buttonStyle = {
     cursor: 'pointer',
     transition: 'background-color 0.3s ease, transform 0.3s',
     width: '100%', // Full width for the button
-};
+});
 
-const impactStatementStyle = {
+const impactStatementStyle = (isDarkMode) => ({
     marginTop: '30px',
     padding: '15px',
-    backgroundColor: '#ecf0f1',
+    backgroundColor: isDarkMode ? '#2c3e50' : '#ecf0f1',
     borderRadius: '8px',
-    color: '#34495e',
-};
+    color: isDarkMode ? '#ecf0f1' : '#34495e',
+});
 
-const infoHeaderStyle = {
+const infoHeaderStyle = (isDarkMode) => ({
     fontSize: '1.25rem',
     fontWeight: '600',
-    color: '#2c3e50',
+    color: isDarkMode ? '#ecf0f1' : '#2c3e50',
     marginBottom: '10px',
-};
+});
 
-const donationMethodsStyle = {
+const donationMethodsStyle = (isDarkMode) => ({
     marginTop: '30px',
     padding: '20px',
-    backgroundColor: '#f4f6f7',
+    backgroundColor: isDarkMode ? '#34495e' : '#f4f6f7',
     borderRadius: '8px',
-    color: '#34495e',
-};
+    color: isDarkMode ? '#ecf0f1' : '#34495e',
+});
 
 const methodStyle = {
     marginBottom: '20px',

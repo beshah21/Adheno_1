@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, HashRouter as Router, Routes, useNavigate } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -20,7 +20,6 @@ const RedirectToHome = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Redirect to "/home" when this component mounts
         navigate('/home');
     }, [navigate]);
 
@@ -28,26 +27,43 @@ const RedirectToHome = () => {
 };
 
 const App = () => {
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const toggleDarkMode = () => {
+        setIsDarkMode(prevMode => !prevMode);
+    };
+
+    // Define dynamic styles for dark mode
+    const appStyle = {
+        backgroundColor: isDarkMode ? '#2c3e50' : '#f9f9f9',
+        color: isDarkMode ? '#ecf0f1' : '#333',
+        minHeight: '100vh',
+        transition: 'background-color 0.3s ease, color 0.3s ease',
+        fontFamily: 'Arial, sans-serif'
+    };
+
     return (
         <Router>
-            <Header />
-            <Routes>
-                {/* Redirect from root path to /home */}
-                <Route path="/" element={<RedirectToHome />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/stories" element={<Stories />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/news" element={<News />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/donate" element={<Donate />} />
-                <Route path="/get-involved" element={<GetInvolved />} />
-                <Route path="/resources" element={<Resources />} />
-                <Route path="/faqs" element={<FAQs />} />
-                <Route path="/team-profile" element={<TeamProfile />} />
-                <Route path="/board-profile" element={<BoardProfile />} />
-            </Routes>
-            <Footer />
+            <div style={appStyle}>
+                <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+                <Routes>
+                    <Route path="/" element={<RedirectToHome />} />
+                    <Route path="/home" element={<Home isDarkMode={isDarkMode} />} />
+                    <Route path="/about" element={<About isDarkMode={isDarkMode} />} />
+                    <Route path="/stories" element={<Stories isDarkMode={isDarkMode} />} />
+                    
+                    <Route path="/projects" element={<Projects isDarkMode={isDarkMode} />} />
+                    <Route path="/news" element={<News isDarkMode={isDarkMode} />} />
+                    <Route path="/contact" element={<Contact isDarkMode={isDarkMode} />} />
+                    <Route path="/donate" element={<Donate isDarkMode={isDarkMode} />} />
+                    <Route path="/get-involved" element={<GetInvolved isDarkMode={isDarkMode} />} />
+                    <Route path="/resources" element={<Resources isDarkMode={isDarkMode} />} />
+                    <Route path="/faqs" element={<FAQs isDarkMode={isDarkMode} />} />
+                    <Route path="/team-profile" element={<TeamProfile isDarkMode={isDarkMode} />} />
+                    <Route path="/board-profile" element={<BoardProfile isDarkMode={isDarkMode} />} />
+                </Routes>
+                <Footer isDarkMode={isDarkMode} />
+            </div>
         </Router>
     );
 };

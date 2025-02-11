@@ -1,6 +1,78 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const About = () => {
+const About = ({ isDarkMode }) => {
+    // Define styles based on dark mode
+    const pageStyle = {
+        backgroundColor: isDarkMode ? '#2c3e50' : '#F5F5DC', // Dark mode background
+        padding: '20px',
+        minHeight: '100vh',
+    };
+
+    const containerStyle = {
+        padding: '2em',
+        maxWidth: '1000px',
+        margin: '0 auto',
+        backgroundColor: isDarkMode ? '#34495e' : '#f9f9f9', // Dark mode container
+        borderRadius: '8px',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+    };
+
+    const headerStyle = {
+        textAlign: 'center',
+        color: isDarkMode ? '#ecf0f1' : '#00796b', // Adjusted header color
+    };
+
+    const tableStyle = {
+        width: '100%',
+        backgroundColor: isDarkMode ? '#2c3e50' : '#FFFFFF', // Dark mode table
+        borderCollapse: 'collapse',
+    };
+
+    const textCellStyle = {
+        padding: '1em',
+        verticalAlign: 'top',
+        color: isDarkMode ? '#ecf0f1' : '#555', // Text color for dark mode
+    };
+
+    const imageCellStyle = {
+        textAlign: 'center',
+        verticalAlign: 'top',
+    };
+
+    const paragraphStyle = {
+        lineHeight: '1.6',
+        color: isDarkMode ? '#ecf0f1' : '#555', // Paragraph color for dark mode
+    };
+
+    const teamHeaderStyle = {
+        marginTop: '30px',
+        color: isDarkMode ? '#ecf0f1' : '#00796b', // Team header color
+    };
+
+    const teamListStyle = {
+        listStyleType: 'none',
+        padding: 0,
+    };
+
+    const linkStyle = {
+        color: '#007BFF',
+        textDecoration: 'none',
+    };
+
+    const listItemStyle = {
+        marginBottom: '1em',
+        transition: 'background-color 0.3s ease',
+        color: isDarkMode ? '#ecf0f1' : '#333', // List item color
+    };
+
+    // Image styles for consistency
+    const imageStyle = {
+        maxWidth: '100%', // Responsive image
+        height: 'auto',
+        borderRadius: '8px',
+    };
+
     return (
         <div style={pageStyle}>
             <div className="about-container" style={containerStyle}>
@@ -17,7 +89,7 @@ const About = () => {
                                 </p>
                             </td>
                             <td style={imageCellStyle} align="center">
-                                <img src="/assets/img/st.%20Gabriel%20Church%20Workegur.jpg" alt="St. Gabriel Church Workegur" style={imageStyle} />
+                                <img src="https://img.icons8.com/?size=100&id=nXduhA13SMUu&format=png&color=000000" alt="St. Gabriel Church Workegur" style={imageStyle} />
                                 <br />St. Gabriel Church Workegur
                             </td>
                         </tr>
@@ -28,7 +100,7 @@ const About = () => {
                                 </p>
                             </td>
                             <td style={imageCellStyle} align="center">
-                                <img src="/assets/img/Local%20youth,%20women%20and%20farmers%20receive%20Project%20Training.jpg" alt="Local youth, women, and farmers receive project training" style={imageStyle} />
+                                <img src="https://img.icons8.com/?size=100&id=nXduhA13SMUu&format=png&color=000000" alt="Local youth, women, and farmers receive project training" style={imageStyle} />
                                 <br />Local youth, women, and farmers receive project training
                             </td>
                         </tr>
@@ -39,7 +111,7 @@ const About = () => {
                                 </p>
                             </td>
                             <td style={imageCellStyle} align="center">
-                                <img src="../../public/img/Local-women-at-ADHENO-office-in-Workegur.jpeg" alt="Local women at ADHENO office in Workegur" style={imageStyle} />
+                                <img src="https://img.icons8.com/?size=100&id=nXduhA13SMUu&format=png&color=000000" alt="Local women at ADHENO office in Workegur" style={imageStyle} />
                                 <br />Local women at ADHENO office in Workegur
                             </td>
                         </tr>
@@ -64,7 +136,7 @@ const About = () => {
                     <li style={listItemStyle}>Eden Hailemichael - Project Cashier</li>
                 </ul>
                 <p>
-                    <a href="/team-profile" style={linkStyle}>Click here to view the ADHENO Team Profile</a>.
+                    <Link to="/team-profile" style={linkStyle}>Click here to view the ADHENO Team Profile</Link>.
                 </p>
 
                 <h3 style={teamHeaderStyle}>ADHENO Executive Board Members</h3>
@@ -78,80 +150,22 @@ const About = () => {
                     <li style={listItemStyle}>Ato Asenak Atakure - Member</li>
                 </ul>
                 <p>
-                    <a href="/board-profile" style={linkStyle}>Click here to view the ADHENO Board Profile</a>.
+                    <Link to="/board-profile" style={linkStyle}>Click here to view the ADHENO Board Profile</Link>.
                 </p>
             </div>
         </div>
     );
 };
 
-// Internal styles
-const pageStyle = {
-    backgroundColor: '#e6f7ff',
-    padding: '20px',
-    minHeight: '100vh',
-};
+// // Internal styles
+// const teamHeaderStyle = {
+//     marginTop: '30px',
+//     color: '#00796b',
+// };
 
-const containerStyle = {
-    padding: '2em',
-    maxWidth: '1000px',
-    margin: '0 auto',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '8px',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-};
-
-const headerStyle = {
-    textAlign: 'center',
-    color: '#00796b',
-};
-
-const tableStyle = {
-    width: '100%',
-    backgroundColor: '#FFFFFF',
-    borderCollapse: 'collapse',
-};
-
-const textCellStyle = {
-    padding: '1em',
-    verticalAlign: 'top',
-};
-
-const imageCellStyle = {
-    textAlign: 'center',
-    verticalAlign: 'top',
-};
-
-const paragraphStyle = {
-    lineHeight: '1.6',
-    color: '#555',
-};
-
-const teamHeaderStyle = {
-    marginTop: '30px',
-    color: '#00796b',
-};
-
-const teamListStyle = {
-    listStyleType: 'none',
-    padding: 0,
-};
-
-const linkStyle = {
-    color: '#007BFF',
-    textDecoration: 'none',
-};
-
-const listItemStyle = {
-    marginBottom: '1em',
-    transition: 'background-color 0.3s ease',
-};
-
-// Image styles for consistency
-const imageStyle = {
-    maxWidth: '100%', // Responsive image
-    height: 'auto',
-    borderRadius: '8px',
-};
+// const teamListStyle = {
+//     listStyleType: 'none',
+//     padding: 0,
+// };
 
 export default About;

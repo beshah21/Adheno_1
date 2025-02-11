@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Projects = () => {
+const Projects = ({ isDarkMode }) => {
     const sampleProjects = [
         {
             title: "Community Water Supply Project",
@@ -21,12 +21,12 @@ const Projects = () => {
     ];
 
     return (
-        <div style={containerStyle}><br></br><br></br><br></br><br></br>
-            <h1 style={headerStyle}>Our Projects</h1>
-            <p style={paragraphStyle}>Here are some of the projects we've undertaken:</p>
+        <div style={containerStyle(isDarkMode)}>
+            <h1 style={headerStyle(isDarkMode)}>Our Projects</h1>
+            <p style={paragraphStyle(isDarkMode)}>Here are some of the projects we've undertaken:</p>
             <ul style={listStyle}>
                 {sampleProjects.map((project, index) => (
-                    <ListItem key={index} title={project.title} description={project.description} />
+                    <ListItem key={index} title={project.title} description={project.description} isDarkMode={isDarkMode} />
                 ))}
             </ul>
         </div>
@@ -34,45 +34,45 @@ const Projects = () => {
 };
 
 // Internal styles
-const containerStyle = {
+const containerStyle = (isDarkMode) => ({
     padding: '30px',
     maxWidth: '900px',
     margin: '0 auto',
-    backgroundColor: '#ffffff',
+    backgroundColor: isDarkMode ? '#34495e' : '#ffffff',
     borderRadius: '10px',
     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
     fontFamily: '"Arial", sans-serif',
-};
+});
 
-const headerStyle = {
+const headerStyle = (isDarkMode) => ({
     textAlign: 'center',
-    color: '#2c3e50', // A dark navy color
+    color: isDarkMode ? '#ecf0f1' : '#2c3e50',
     marginBottom: '20px',
     fontSize: '2.5rem',
-};
+});
 
-const paragraphStyle = {
+const paragraphStyle = (isDarkMode) => ({
     lineHeight: '1.7',
-    color: '#34495e', // A softer dark color
+    color: isDarkMode ? '#ecf0f1' : '#34495e',
     textAlign: 'center',
     marginBottom: '30px',
     fontSize: '1.1rem',
-};
+});
 
 const listStyle = {
     listStyleType: 'none',
     padding: 0,
 };
 
-const listItemStyle = {
+const listItemStyle = (isDarkMode) => ({
     marginBottom: '25px',
     padding: '20px',
-    border: '1px solid #ecf0f1',
+    border: `1px solid ${isDarkMode ? '#7f8c8d' : '#ecf0f1'}`,
     borderRadius: '8px',
-    backgroundColor: '#f8f9fa',
+    backgroundColor: isDarkMode ? '#2c3e50' : '#f8f9fa',
     transition: 'transform 0.3s, box-shadow 0.3s',
     cursor: 'pointer',
-};
+});
 
 // Hover style
 const hoverStyle = {
@@ -82,29 +82,29 @@ const hoverStyle = {
 
 const projectTitleStyle = {
     fontSize: '1.6rem',
-    color: '#e74c3c', // A vibrant red for emphasis
+    color: '#e74c3c',
 };
 
-const projectDescriptionStyle = {
+const projectDescriptionStyle = (isDarkMode) => ({
     lineHeight: '1.6',
-    color: '#7f8c8d', // A muted gray for the paragraph text
-};
+    color: isDarkMode ? '#ecf0f1' : '#7f8c8d',
+});
 
 // Wrapper component to handle hover state
-const ListItem = ({ title, description }) => {
+const ListItem = ({ title, description, isDarkMode }) => {
     const [isHovered, setIsHovered] = React.useState(false);
 
     return (
         <li
             style={{
-                ...listItemStyle,
+                ...listItemStyle(isDarkMode),
                 ...(isHovered ? hoverStyle : {}),
             }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <strong style={projectTitleStyle}>{title}</strong>
-            <p style={projectDescriptionStyle}>{description}</p>
+            <p style={projectDescriptionStyle(isDarkMode)}>{description}</p>
         </li>
     );
 };

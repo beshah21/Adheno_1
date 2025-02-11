@@ -1,6 +1,45 @@
 import React from 'react';
 
-const Home = () => {
+const Home = ({ isDarkMode }) => {
+    // Define styles based on dark mode
+    const containerStyle = {
+        padding: '2em',
+        maxWidth: '800px',
+        margin: '0 auto',
+        backgroundColor: isDarkMode ? '#34495e' : '#e0f7fa', // Dark mode light blue background
+        borderRadius: '8px',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+        paddingTop: '10vh', // Added top padding to account for the fixed header
+    };
+
+    const headerStyle = {
+        textAlign: 'center',
+        color: isDarkMode ? '#ecf0f1' : '#00796b', // Adjusted color for dark mode
+    };
+
+    const paragraphStyle = {
+        lineHeight: '1.6',
+        color: isDarkMode ? '#ecf0f1' : '#555', // Light color for dark mode
+        fontSize: '1em', // Responsive font size
+    };
+
+    const listStyle = {
+        listStyleType: 'none',
+        padding: 0,
+    };
+
+    const listItemStyle = {
+        marginBottom: '1.5em', // Responsive margin
+    };
+
+    const strongStyle = {
+        color: isDarkMode ? '#FFD700' : '#00796b', // Gold for emphasis in dark mode
+    };
+
+    const textContainerStyle = {
+        marginTop: '2em', // Increased margin for spacing
+    };
+
     return (
         <div className="home-container" style={containerStyle}>
             <h1 style={headerStyle}>Welcome to ADHENO Integrated Rural Development Association</h1>
@@ -54,45 +93,6 @@ const Home = () => {
             </div>
         </div>
     );
-};
-
-// Internal styles
-const containerStyle = {
-    padding: '2em',
-    maxWidth: '800px',
-    margin: '0 auto',
-    backgroundColor: '#e0f7fa', // Light blue background
-    borderRadius: '8px',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-    paddingTop: '10vh', // Added top padding to account for the fixed header
-};
-
-const headerStyle = {
-    textAlign: 'center',
-    color: '#00796b', // Darker blue for contrast
-};
-
-const paragraphStyle = {
-    lineHeight: '1.6',
-    color: '#555',
-    fontSize: '1em', // Responsive font size
-};
-
-const listStyle = {
-    listStyleType: 'none',
-    padding: 0,
-};
-
-const listItemStyle = {
-    marginBottom: '1.5em', // Responsive margin
-};
-
-const strongStyle = {
-    color: '#00796b', // Darker blue for emphasis
-};
-
-const textContainerStyle = {
-    marginTop: '2em', // Increased margin for spacing
 };
 
 export default Home;
