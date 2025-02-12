@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/beshah21/Adheno_1.git/static/css/main.e6c13ad2.css",
+    "main.js": "/beshah21/Adheno_1.git/static/js/main.81e07bf7.js",
+    "static/js/488.881e303f.chunk.js": "/beshah21/Adheno_1.git/static/js/488.881e303f.chunk.js",
+    "index.html": "/beshah21/Adheno_1.git/index.html",
+    "main.e6c13ad2.css.map": "/beshah21/Adheno_1.git/static/css/main.e6c13ad2.css.map",
+    "main.81e07bf7.js.map": "/beshah21/Adheno_1.git/static/js/main.81e07bf7.js.map",
+    "488.881e303f.chunk.js.map": "/beshah21/Adheno_1.git/static/js/488.881e303f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.81e07bf7.js"
+  ]
+}
