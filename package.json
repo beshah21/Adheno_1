@@ -1,5 +1,5 @@
 {
- "homepage": "https://beshah21.github.io/Adheno/",
+ "homepage": "https://beshah21.github.io/Adheno_1/",
  "name": "adheno-website",
  "version": "0.1.0",
  "private": true,
@@ -39,6 +39,7 @@
  },
  "devDependencies": {
   "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+  "@testing-library/jest-dom": "^6.6.3",
   "gh-pages": "^6.3.0"
  }
 }

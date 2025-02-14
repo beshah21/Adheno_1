@@ -3,100 +3,90 @@ import { Link } from 'react-router-dom';
 
 const Footer = ({ isMobile, isDarkMode }) => {
     return (
-        <footer style={footerStyle(isDarkMode)}>
-            <div style={footerContentStyle}>
-                <div style={footerSectionStyle}>
-                    <h2 style={footerTitleStyle(isDarkMode)}>About Us</h2>
-                    <p>
-                        ADHENO, founded in 1998, is an Ethiopian NGO dedicated to poverty alleviation in Northern Shewa through community-driven development projects. It works closely with local farmers, women, and youth, implementing environmental rehabilitation, education, and training initiatives. With strong local trust, ADHENO ensures sustainable impact by involving the community in project planning and execution.
-                    </p>
-                </div>
-                <div style={footerSectionStyle}>
-                    <h2 style={footerTitleStyle(isDarkMode)}>Quick Links</h2>
-                    <ul style={isMobile ? mobileNavListStyle : desktopNavListStyle}>
-                        {['Home', 'About', 'News', 'Contact', 'Donate'].map((item, index) => (
-                            <li key={index}>
+        <>
+            <div style={mainContentStyle}>
+                {/* Main Content Goes Here */}
+            </div>
+            <footer style={footerStyle(isDarkMode)}>
+                <div style={footerContentStyle}>
+                    <div style={footerSectionStyle}>
+                        <span style={footerTitleStyle(isDarkMode)}>About</span>
+                        <span style={footerTextStyle}>ADHENO, founded in 1998, is an Ethiopian NGO.</span>
+                    </div>
+                    <div style={footerSectionStyle}>
+                        <span style={footerTitleStyle(isDarkMode)}>Links</span>
+                        <span style={linksTextStyle}>
+                            {['Home', 'About', 'News', 'Contact', 'Donate'].map((item, index) => (
                                 <Link
+                                    key={index}
                                     to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                                    style={isMobile ? mobileLinkStyle : desktopLinkStyle}
-                                    onMouseEnter={(e) => !isMobile && (e.target.style.color = '#FFD700')}
-                                    onMouseLeave={(e) => !isMobile && (e.target.style.color = '#fff')}
+                                    style={linkStyle}
                                 >
-                                    {item}
+                                    {item}{index < 4 ? ' | ' : ''}
                                 </Link>
-                            </li>
-                        ))}
-                    </ul>
+                            ))}
+                        </span>
+                    </div>
+                    <div style={footerSectionStyle}>
+                        <span style={footerTextStyle}>
+                            Email: <a href="mailto:adheneo@ethionet.et" style={linkStyle}>adheneo@ethionet.et</a>
+                            &nbsp; | &nbsp; © 2025 ADHENO.
+                        </span>
+                    </div>
                 </div>
-                <div style={footerSectionStyle}>
-                    <h2 style={footerTitleStyle(isDarkMode)}>Contact Us</h2>
-                    <p>Email: <a href="mailto:adheneo@ethionet.et" style={linkStyle}>adheneo@ethionet.et</a></p>
-                    <p>Phone: <a href="tel:0912121314" style={linkStyle}>0912121314</a></p>
-                </div>
-            </div>
-            <div style={footerBottomStyle(isDarkMode)}>
-                <p>&copy; 2025 ADHENO. All rights reserved.</p>
-            </div>
-        </footer>
+            </footer>
+        </>
     );
 };
 
 // Internal styles for Footer
+const mainContentStyle = {
+    paddingBottom: '60px', // Space for the footer
+};
+
 const footerStyle = (isDarkMode) => ({
-    backgroundColor: isDarkMode ? '#1a1a1a' : '#008080', // Dark mode footer color
+    backgroundColor: isDarkMode ? '#1a1a1a' : '#008080',
     color: '#fff',
-    padding: '20px',
-    textAlign: 'left',
+    padding: '5px', // Compact padding
+    textAlign: 'center',
+    position: 'fixed',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1000,
 });
 
 const footerContentStyle = {
     display: 'flex',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
+    alignItems: 'center', // Center items vertically
 };
 
 const footerSectionStyle = {
     flex: '1',
-    padding: '10px',
+    display: 'flex',
+    flexDirection: 'column',
 };
 
 const footerTitleStyle = (isDarkMode) => ({
-    marginBottom: '10px',
+    marginBottom: '0', // Remove margin for compactness
     color: isDarkMode ? '#ecf0f1' : '#fff',
+    fontSize: '12px', // Keep original font size
 });
 
-const mobileNavListStyle = {
-    listStyleType: 'none',
-    padding: 0,
-    margin: 0,
+const footerTextStyle = {
+    fontSize: '12px', // Keep original font size
 };
 
-const desktopNavListStyle = {
-    listStyleType: 'none',
-    padding: 0,
-    margin: 0,
-};
-
-const mobileLinkStyle = {
-    color: '#fff',
-    textDecoration: 'none',
-};
-
-const desktopLinkStyle = {
-    color: '#fff',
-    textDecoration: 'none',
+const linksTextStyle = {
+    fontSize: '12px', // Keep original font size
 };
 
 const linkStyle = {
     color: '#fff',
     textDecoration: 'none',
+    fontSize: '12px', // Keep original font size
 };
-
-const footerBottomStyle = (isDarkMode) => ({
-    textAlign: 'center',
-    marginTop: '20px',
-    fontSize: '14px',
-    color: isDarkMode ? '#ecf0f1' : '#fff',
-});
 
 export default Footer;

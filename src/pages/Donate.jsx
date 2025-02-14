@@ -4,6 +4,9 @@ const Donate = ({ isDarkMode }) => {
     const [donationType, setDonationType] = useState('single');
     const [donationAmount, setDonationAmount] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('creditCard');
+    const [creditCardNumber, setCreditCardNumber] = useState('');
+    const [expiryDate, setExpiryDate] = useState('');
+    const [cvv, setCvv] = useState('');
 
     const handleTypeChange = (e) => {
         setDonationType(e.target.value);
@@ -19,7 +22,11 @@ const Donate = ({ isDarkMode }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert(`Thank you for your ${donationType} donation of $${donationAmount}!`);
+        if (paymentMethod === 'creditCard') {
+            alert(`Thank you for your ${donationType} donation of $${donationAmount} via Credit Card!`);
+        } else {
+            alert(`Thank you for your ${donationType} donation of $${donationAmount} via PayPal!`);
+        }
     };
 
     return (
@@ -45,6 +52,8 @@ const Donate = ({ isDarkMode }) => {
                             required
                         />
                     </div>
+
+                    {/* Payment Method Selector */}
                     <div style={formGroupStyle}>
                         <label style={labelStyle(isDarkMode)}>Payment Method:</label>
                         <select
@@ -56,9 +65,58 @@ const Donate = ({ isDarkMode }) => {
                             <option value="paypal">PayPal</option>
                         </select>
                     </div>
+
+                    {/* Conditional Rendering for Payment Form */}
+                    {paymentMethod === 'creditCard' ? (
+                        <div>
+                            <div style={formGroupStyle}>
+                                <label style={labelStyle(isDarkMode)}>Credit Card Number:</label>
+                                <input
+                                    type="text"
+                                    value={creditCardNumber}
+                                    onChange={(e) => setCreditCardNumber(e.target.value)}
+                                    style={inputStyle(isDarkMode)}
+                                    required
+                                />
+                            </div>
+                            <div style={formGroupStyle}>
+                                <label style={labelStyle(isDarkMode)}>Expiration Date:</label>
+                                <input
+                                    type="text"
+                                    value={expiryDate}
+                                    onChange={(e) => setExpiryDate(e.target.value)}
+                                    style={inputStyle(isDarkMode)}
+                                    required
+                                    placeholder="MM/YY"
+                                />
+                            </div>
+                            <div style={formGroupStyle}>
+                                <label style={labelStyle(isDarkMode)}>CVV:</label>
+                                <input
+                                    type="text"
+                                    value={cvv}
+                                    onChange={(e) => setCvv(e.target.value)}
+                                    style={inputStyle(isDarkMode)}
+                                    required
+                                />
+                            </div>
+                        </div>
+                    ) : (
+                        <div style={formGroupStyle}>
+                            <label style={labelStyle(isDarkMode)}>PayPal Email:</label>
+                            <input
+                                type="email"
+                                style={inputStyle(isDarkMode)}
+                                placeholder="Enter your PayPal email"
+                                required
+                            />
+                        </div>
+                    )}
+
                     <button type="submit" style={buttonStyle(isDarkMode)}>Donate</button>
                 </form>
 
+                {/* Impact Statement Section */}
                 <div style={impactStatementStyle(isDarkMode)}>
                     <h2 style={infoHeaderStyle(isDarkMode)}>Impact of Your Donation</h2>
                     <p>Your generous contributions help us provide essential services to those in need. 
@@ -66,6 +124,7 @@ const Donate = ({ isDarkMode }) => {
                        or supporting crucial initiatives, every dollar makes a difference!</p>
                 </div>
 
+                {/* Donation Methods */}
                 <div style={donationMethodsStyle(isDarkMode)}>
                     <h2 style={infoHeaderStyle(isDarkMode)}>Other Ways to Donate</h2>
                     <p>If you prefer to donate through other means, you can use the following options:</p>
@@ -93,7 +152,7 @@ const Donate = ({ isDarkMode }) => {
     );
 };
 
-// Internal styles
+// Internal styles (remains unchanged)
 const outerContainerStyle = (isDarkMode) => ({
     backgroundColor: isDarkMode ? '#2c3e50' : '#e9eff1', // Softer background
     minHeight: '100vh',

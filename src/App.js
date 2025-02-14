@@ -35,33 +35,40 @@ const App = () => {
 
     // Define dynamic styles for dark mode
     const appStyle = {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh', // Ensure the container takes at least the full height of the viewport
         backgroundColor: isDarkMode ? '#2c3e50' : '#f9f9f9',
         color: isDarkMode ? '#ecf0f1' : '#333',
-        minHeight: '100vh',
         transition: 'background-color 0.3s ease, color 0.3s ease',
         fontFamily: 'Arial, sans-serif'
+    };
+
+    const mainContentStyle = {
+        flex: '1', // This allows the main content to grow and take available space
     };
 
     return (
         <Router>
             <div style={appStyle}>
                 <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-                <Routes>
-                    <Route path="/" element={<RedirectToHome />} />
-                    <Route path="/home" element={<Home isDarkMode={isDarkMode} />} />
-                    <Route path="/about" element={<About isDarkMode={isDarkMode} />} />
-                    <Route path="/stories" element={<Stories isDarkMode={isDarkMode} />} />
-                    
-                    <Route path="/projects" element={<Projects isDarkMode={isDarkMode} />} />
-                    <Route path="/news" element={<News isDarkMode={isDarkMode} />} />
-                    <Route path="/contact" element={<Contact isDarkMode={isDarkMode} />} />
-                    <Route path="/donate" element={<Donate isDarkMode={isDarkMode} />} />
-                    <Route path="/get-involved" element={<GetInvolved isDarkMode={isDarkMode} />} />
-                    <Route path="/resources" element={<Resources isDarkMode={isDarkMode} />} />
-                    <Route path="/faqs" element={<FAQs isDarkMode={isDarkMode} />} />
-                    <Route path="/team-profile" element={<TeamProfile isDarkMode={isDarkMode} />} />
-                    <Route path="/board-profile" element={<BoardProfile isDarkMode={isDarkMode} />} />
-                </Routes>
+                <main style={mainContentStyle}>
+                    <Routes>
+                        <Route path="/" element={<RedirectToHome />} />
+                        <Route path="/home" element={<Home isDarkMode={isDarkMode} />} />
+                        <Route path="/about" element={<About isDarkMode={isDarkMode} />} />
+                        <Route path="/stories" element={<Stories isDarkMode={isDarkMode} />} />
+                        <Route path="/projects" element={<Projects isDarkMode={isDarkMode} />} />
+                        <Route path="/news" element={<News isDarkMode={isDarkMode} />} />
+                        <Route path="/contact" element={<Contact isDarkMode={isDarkMode} />} />
+                        <Route path="/donate" element={<Donate isDarkMode={isDarkMode} />} />
+                        <Route path="/get-involved" element={<GetInvolved isDarkMode={isDarkMode} />} />
+                        <Route path="/resources" element={<Resources isDarkMode={isDarkMode} />} />
+                        <Route path="/faqs" element={<FAQs isDarkMode={isDarkMode} />} />
+                        <Route path="/team-profile" element={<TeamProfile isDarkMode={isDarkMode} />} />
+                        <Route path="/board-profile" element={<BoardProfile isDarkMode={isDarkMode} />} />
+                    </Routes>
+                </main>
                 <Footer isDarkMode={isDarkMode} />
             </div>
         </Router>

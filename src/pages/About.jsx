@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const About = ({ isDarkMode }) => {
     // Define styles based on dark mode
     const pageStyle = {
-        backgroundColor: isDarkMode ? '#2c3e50' : '#F5F5DC', // Dark mode background
+        backgroundColor: isDarkMode ? '#2c3e50' : '#F5F5DC', 
         padding: '20px',
         minHeight: '100vh',
     };
@@ -13,26 +13,26 @@ const About = ({ isDarkMode }) => {
         padding: '2em',
         maxWidth: '1000px',
         margin: '0 auto',
-        backgroundColor: isDarkMode ? '#34495e' : '#f9f9f9', // Dark mode container
+        backgroundColor: isDarkMode ? '#34495e' : '#f9f9f9', 
         borderRadius: '8px',
         boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
     };
 
     const headerStyle = {
         textAlign: 'center',
-        color: isDarkMode ? '#ecf0f1' : '#00796b', // Adjusted header color
+        color: isDarkMode ? '#ecf0f1' : '#00796b',
     };
 
     const tableStyle = {
         width: '100%',
-        backgroundColor: isDarkMode ? '#2c3e50' : '#FFFFFF', // Dark mode table
+        backgroundColor: isDarkMode ? '#2c3e50' : '#FFFFFF', 
         borderCollapse: 'collapse',
     };
 
     const textCellStyle = {
         padding: '1em',
         verticalAlign: 'top',
-        color: isDarkMode ? '#ecf0f1' : '#555', // Text color for dark mode
+        color: isDarkMode ? '#ecf0f1' : '#555',
     };
 
     const imageCellStyle = {
@@ -42,12 +42,12 @@ const About = ({ isDarkMode }) => {
 
     const paragraphStyle = {
         lineHeight: '1.6',
-        color: isDarkMode ? '#ecf0f1' : '#555', // Paragraph color for dark mode
+        color: isDarkMode ? '#ecf0f1' : '#555',
     };
 
     const teamHeaderStyle = {
         marginTop: '30px',
-        color: isDarkMode ? '#ecf0f1' : '#00796b', // Team header color
+        color: isDarkMode ? '#ecf0f1' : '#00796b',
     };
 
     const teamListStyle = {
@@ -63,12 +63,11 @@ const About = ({ isDarkMode }) => {
     const listItemStyle = {
         marginBottom: '1em',
         transition: 'background-color 0.3s ease',
-        color: isDarkMode ? '#ecf0f1' : '#333', // List item color
+        color: isDarkMode ? '#ecf0f1' : '#333',
     };
 
-    // Image styles for consistency
     const imageStyle = {
-        maxWidth: '100%', // Responsive image
+        maxWidth: '100%',
         height: 'auto',
         borderRadius: '8px',
     };
@@ -88,7 +87,7 @@ const About = ({ isDarkMode }) => {
                                     A Non-Governmental Organization was established and registered with the government of Ethiopia as ADHENO: Integrated Rural Development Association. The principal goal of this NGO is the elimination of poverty in the Northern Shewa region by providing the local population "the opportunity to use their labor to good purpose."
                                 </p>
                             </td>
-                            <td style={imageCellStyle} align="center">
+                            <td style={imageCellStyle}>
                                 <img src="https://img.icons8.com/?size=100&id=nXduhA13SMUu&format=png&color=000000" alt="St. Gabriel Church Workegur" style={imageStyle} />
                                 <br />St. Gabriel Church Workegur
                             </td>
@@ -96,10 +95,10 @@ const About = ({ isDarkMode }) => {
                         <tr>
                             <td style={textCellStyle}>
                                 <p style={paragraphStyle}>
-                                    The close interaction that ADHENO has with the local farmers, women, and youth, as well as the success of several well-executed local projects, have earned ADHENO a significant amount of credibility among the local population. The trust and cooperation of the local people have made ADHENO especially effective in implementing development projects in this region. Many projects, including the school building and phases I to III of the environmental rehabilitation projects, were developed by ADHENO based on the specific requests of the local population, who have subsequently been enthusiastic participants, supporters, and beneficiaries of these projects. ADHENO has recently been awarded prizes by the local administration for its contributions to the community.
+                                    The close interaction that ADHENO has with the local farmers, women, and youth, as well as the success of several well-executed local projects, have earned ADHENO a significant amount of credibility among the local population. The trust and cooperation of the local people have made ADHENO especially effective in implementing development projects in this region.
                                 </p>
                             </td>
-                            <td style={imageCellStyle} align="center">
+                            <td style={imageCellStyle}>
                                 <img src="https://img.icons8.com/?size=100&id=nXduhA13SMUu&format=png&color=000000" alt="Local youth, women, and farmers receive project training" style={imageStyle} />
                                 <br />Local youth, women, and farmers receive project training
                             </td>
@@ -107,10 +106,10 @@ const About = ({ isDarkMode }) => {
                         <tr>
                             <td style={textCellStyle}>
                                 <p style={paragraphStyle}>
-                                    A key success factor for ADHENO's development projects has been a very hands-on approach and a very close relationship with the local population. ADHENO listens to the local people to understand their needs and works directly with them to leverage their local knowledge to develop solutions. Local farmers, women, and youth have been organized into local committees that are responsible for managing and monitoring the various projects. For example, the committee of farmers that monitors the environmental initiatives ensures that no local animals are allowed to graze on protected land. The members of these committees are given training on how to implement projects and manage finances. Thus far, there are four such committees that have been formed.
+                                    A key success factor for ADHENO's development projects has been a very hands-on approach and a very close relationship with the local population. ADHENO listens to the local people to understand their needs and works directly with them to leverage their local knowledge to develop solutions.
                                 </p>
                             </td>
-                            <td style={imageCellStyle} align="center">
+                            <td style={imageCellStyle}>
                                 <img src="https://img.icons8.com/?size=100&id=nXduhA13SMUu&format=png&color=000000" alt="Local women at ADHENO office in Workegur" style={imageStyle} />
                                 <br />Local women at ADHENO office in Workegur
                             </td>
@@ -118,7 +117,7 @@ const About = ({ isDarkMode }) => {
                         <tr>
                             <td colSpan="2" style={textCellStyle}>
                                 <p style={paragraphStyle}>
-                                    ADHENO staff also includes two community development workers that were hired from the community and are based in the project area. ADHENO has a small office (funded by SIDA) in the village of Workegur to coordinate project activity.
+                                    ADHENO staff includes community development workers hired from the community and based in the project area. ADHENO has a small office (funded by SIDA) in the village of Workegur to coordinate project activity.
                                 </p>
                             </td>
                         </tr>
@@ -156,16 +155,5 @@ const About = ({ isDarkMode }) => {
         </div>
     );
 };
-
-// // Internal styles
-// const teamHeaderStyle = {
-//     marginTop: '30px',
-//     color: '#00796b',
-// };
-
-// const teamListStyle = {
-//     listStyleType: 'none',
-//     padding: 0,
-// };
 
 export default About;
